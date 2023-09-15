@@ -1,7 +1,9 @@
 import {useRef } from 'react';
-import Cart from '../../components/Cart/Cart.components';
+import CheckOut from '../../components/CheckOut/CheckOut.components';
 import FaceCam from '../../components/FaceCam/FaceCam.components';
 import { VideoContainer } from './FaceAuth.styles';
+
+
 
 function FaceAuth() {
     const videoRef = useRef(null);
@@ -9,7 +11,7 @@ function FaceAuth() {
     return (
       <VideoContainer>
         <FaceCam videoRef={videoRef}/>
-        <Cart videoRef={videoRef}/>        
+        <CheckOut videoRef={videoRef}/>        
       </VideoContainer>
     );
 }
