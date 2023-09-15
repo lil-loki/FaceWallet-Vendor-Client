@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-export const FaceAuthContainer = styled.div`
+export const ConfirmationContainer = styled.div`
     width:inherit;
     height:inherit;
     display:flex;
 `;
-

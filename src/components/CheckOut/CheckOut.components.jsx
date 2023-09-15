@@ -10,13 +10,15 @@ import {
   PriceValue,
   TotalDetails,
   TotalLable,
-  TotalValue
+  TotalValue,
+  StyledButton,
+  InfoContainer
  } from "./CheckOut.styles";
 
  import LOGO from "../../assets/Logo.svg"
 
 
-function CheckOut({videoRef}) {
+function CheckOut({videoRef,Transation,setTransationState}) {
 
   const handleCaptureImage = () => {
     if (videoRef.current) {
@@ -35,37 +37,39 @@ function CheckOut({videoRef}) {
       a.href = imageDataURL;
       a.download = 'webcam_capture.png';
       a.click();
+      setTransationState(false);
     }
   };
-
 
 
   return (
     <CheckOutContainer> 
       <CheckOutHeaderContainer>
+      <CheckOutHeaderLogo src={LOGO} />
         <CheckOutHeader>
-          <CheckOutHeaderLogo src={LOGO} />
-          City SuperMarket
+          {Transation.shopName}
         </CheckOutHeader>
       </CheckOutHeaderContainer>
       <PriceDetailsContainer>
         <PriceDetails>
           <PriceLable>Price</PriceLable>
-          <PriceValue>Rs.500</PriceValue>
+          <PriceValue>Rs.{Transation.price}</PriceValue>
         </PriceDetails>
         <PriceDetails>
           <PriceLable>Tax</PriceLable>
-          <PriceValue>Rs.50</PriceValue>
+          <PriceValue>Rs.{Transation.tax}</PriceValue>
         </PriceDetails>
         <TotalDetails>
           <TotalLable>Total Amount</TotalLable>
-          <TotalValue>Rs.550</TotalValue>
+          <TotalValue>Rs.{Transation.total}</TotalValue>
         </TotalDetails>
-      </PriceDetailsContainer>
-       <button onClick={handleCaptureImage}>Capture Image</button>
-      <div>
+        <StyledButton onClick={handleCaptureImage}>
+          Press To Procceed
+        </StyledButton>
+      </PriceDetailsContainer>       
+      <InfoContainer>
         Position Your Face Within The Frame
-      </div>
+      </InfoContainer>
     </CheckOutContainer>
   )
 }

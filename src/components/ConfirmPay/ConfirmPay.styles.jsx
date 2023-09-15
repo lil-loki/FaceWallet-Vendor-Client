@@ -41,54 +41,7 @@ export const PriceDetailsContainer = styled.div`
 
 
 
-export const PriceDetails = styled.div`
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:2.5rem;
-    margin-bottom: 20px;
-    width:100%;
-    height:15%;
-`;
 
-export const PriceLable = styled.span`
-    color:grey;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`;
-
-export const PriceValue = styled.span`
-    color:grey;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`;
-
-export const TotalDetails = styled.div`
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:3.5rem;
-    width:100%;
-    height:20%;
-`;
-
-export const TotalLable = styled.span`
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`;
-
-export const TotalValue = styled.span`
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`;
 
 export const StyledButton = styled.button`
     width: 50%;
@@ -113,16 +66,11 @@ export const StyledButton = styled.button`
 `;
 
 export const InfoContainer = styled.div`
-    width:80%;
-    height:5%;
+    width:100%;
+    height:30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size:1.5rem;
+    font-size:3rem;
 `;
 
-export const Video = styled.video`
-    width:50%;
-    height:100%;
-    object-fit: cover;
-`;
