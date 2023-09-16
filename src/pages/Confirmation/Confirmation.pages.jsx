@@ -3,11 +3,11 @@ import { ConfirmationContainer } from "./Confirmation.styles";
 import  CardDetails from "../../components/CardDetails/CardDetails.components";
 import  ConfirmPay from "../../components/ConfirmPay/ConfirmPay.components";
 
-function Confirmation({Transation}) {
+function Confirmation({Transaction,setTransactionState}) {
   return (
     <ConfirmationContainer>
         <CardDetails />
-        <ConfirmPay Transation={Transation}/>
+        <ConfirmPay Transaction={Transaction} setTransactionState={setTransactionState}/>
     </ConfirmationContainer>
   )
 }

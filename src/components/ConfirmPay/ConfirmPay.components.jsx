@@ -12,20 +12,20 @@ import {
 import LOGO from "../../assets/Logo.svg";
 
 
-function ConfirmPay({Transation}) {
+function ConfirmPay({Transaction,setTransactionState}) {
   return (
     <CheckOutContainer> 
     <CheckOutHeaderContainer>
     <CheckOutHeaderLogo src={LOGO} />
       <CheckOutHeader>
-        {Transation.shopName}
+        {Transaction.shopName}
       </CheckOutHeader>
     </CheckOutHeaderContainer>
     <PriceDetailsContainer>
       <InfoContainer>
-        Pay Rs.{Transation.total} to {Transation.shopName}
+        Pay Rs.{Transaction.total} to {Transaction.shopName}
       </InfoContainer>
-      <StyledButton >
+      <StyledButton onClick={()=>(setTransactionState(3))}>
         Confirm And Pay
       </StyledButton>
     </PriceDetailsContainer>       

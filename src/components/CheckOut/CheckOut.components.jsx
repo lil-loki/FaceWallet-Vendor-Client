@@ -18,7 +18,7 @@ import {
  import LOGO from "../../assets/Logo.svg"
 
 
-function CheckOut({videoRef,Transation,setTransationState}) {
+function CheckOut({videoRef,Transaction,setTransactionState}) {
 
   const handleCaptureImage = () => {
     if (videoRef.current) {
@@ -37,7 +37,7 @@ function CheckOut({videoRef,Transation,setTransationState}) {
       a.href = imageDataURL;
       a.download = 'webcam_capture.png';
       a.click();
-      setTransationState(false);
+      setTransactionState(2);
     }
   };
 
@@ -47,21 +47,21 @@ function CheckOut({videoRef,Transation,setTransationState}) {
       <CheckOutHeaderContainer>
       <CheckOutHeaderLogo src={LOGO} />
         <CheckOutHeader>
-          {Transation.shopName}
+          {Transaction.shopName}
         </CheckOutHeader>
       </CheckOutHeaderContainer>
       <PriceDetailsContainer>
         <PriceDetails>
           <PriceLable>Price</PriceLable>
-          <PriceValue>Rs.{Transation.price}</PriceValue>
+          <PriceValue>Rs.{Transaction.price}</PriceValue>
         </PriceDetails>
         <PriceDetails>
           <PriceLable>Tax</PriceLable>
-          <PriceValue>Rs.{Transation.tax}</PriceValue>
+          <PriceValue>Rs.{Transaction.tax}</PriceValue>
         </PriceDetails>
         <TotalDetails>
           <TotalLable>Total Amount</TotalLable>
-          <TotalValue>Rs.{Transation.total}</TotalValue>
+          <TotalValue>Rs.{Transaction.total}</TotalValue>
         </TotalDetails>
         <StyledButton onClick={handleCaptureImage}>
           Press To Procceed
