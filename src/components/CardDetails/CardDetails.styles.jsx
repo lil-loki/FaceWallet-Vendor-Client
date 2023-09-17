@@ -24,6 +24,7 @@ export const ProfilePhoto = styled.img`
     border-radius: 50%;
     margin: 0;
     margin-top: 10%;
+    border: 2px solid black;
 `;
 
 export const UserNameContainer = styled.div`

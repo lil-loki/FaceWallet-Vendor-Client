@@ -12,7 +12,6 @@ import PaymentConfirm from './pages/PaymentConfirm/PaymentConfirm.pages'
 
 function  App() {
 
-  // const [TransactionState, setTransactionState] = useState(1);
   useEffect(() => {
     transactionStore.setTransaction({
       'shopName':"City's SuperMarket",

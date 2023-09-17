@@ -1,3 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
+
+import {useEffect} from 'react';
+
+import { observer } from 'mobx-react';
+import userStore from '../../Mobx/UserStore';
+
+
 import { 
   CardDetailsMainContainer,
   ProfilePhotoContainer,
@@ -28,13 +36,24 @@ import Chip from '../../assets/chip.png'
 import Visa from  '../../assets/visa.png'
 
 function CardDetails() {
-  let imgsrc="https://tinyurl.com/yt2mcuvj";
+
+  useEffect(() => {
+    userStore.setUser({
+      'UserID':123123,
+      'UserName':"Lokesh S",
+      'ProfileImg':"https://tinyurl.com/yt2mcuvj",
+      'CardNumber':"**** **** **** 1234",
+      'CardholderName':"Lokesh Sivakumar",
+      'Expiration':"09/28",
+    })
+  }, []);
+
   return (
     <CardDetailsMainContainer>
       <ProfilePhotoContainer>
-        <ProfilePhoto src={imgsrc}/>
+        <ProfilePhoto src={userStore.user.ProfileImg}/>
         <UserNameContainer>
-          Lokesh S
+          {userStore.user.UserName}
         </UserNameContainer>
       </ProfilePhotoContainer>    
         <CardContainer>
@@ -46,12 +65,12 @@ function CardDetails() {
             <CardBottomContainer>
               <CardNumberContainer>
                 <CardNumberLabel>Card Number</CardNumberLabel>
-                <CardNumberValue>**** **** **** 5555</CardNumberValue>
+                <CardNumberValue>{userStore.user.CardNumber}</CardNumberValue>
               </CardNumberContainer>
               <CardDetailsContainer>
                 <CardHolderNameContainer>
                   <CardHolderNameLabel>Cardholder Name</CardHolderNameLabel>
-                  <CardHolderNameValue>Lokesh Sivakumar</CardHolderNameValue>
+                  <CardHolderNameValue>{userStore.user.CardholderName}</CardHolderNameValue>
                 </CardHolderNameContainer>
                 <CardExpiryContainer>
                   <CardExpiryLabel>Expiration</CardExpiryLabel>
@@ -60,7 +79,7 @@ function CardDetails() {
                       <CardExpiryValueLabel>Valid</CardExpiryValueLabel>
                       <CardExpiryValueLabel>Thru</CardExpiryValueLabel>
                     </CardExpiryValueLabelContainer>
-                    <CardExpiryValue>01/25</CardExpiryValue>
+                    <CardExpiryValue>{userStore.user.Expiration}</CardExpiryValue>
                   </CardExpiryValueContainer>
                 </CardExpiryContainer>
               </CardDetailsContainer>
@@ -71,4 +90,4 @@ function CardDetails() {
   )
 }
 
-export default CardDetails;
+export default observer(CardDetails);
