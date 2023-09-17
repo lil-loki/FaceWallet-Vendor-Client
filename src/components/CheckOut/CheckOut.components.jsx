@@ -1,4 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
+
+import { observer } from 'mobx-react';
+import transactionStore from '../../Mobx/TransactionStore';
+
 import { 
   CheckOutContainer,
   CheckOutHeaderContainer,
@@ -18,7 +23,7 @@ import {
  import LOGO from "../../assets/Logo.svg"
 
 
-function CheckOut({videoRef,Transaction,setTransactionState}) {
+function CheckOut({videoRef}) {
 
   const handleCaptureImage = () => {
     if (videoRef.current) {
@@ -37,7 +42,7 @@ function CheckOut({videoRef,Transaction,setTransactionState}) {
       a.href = imageDataURL;
       a.download = 'webcam_capture.png';
       a.click();
-      setTransactionState(2);
+      transactionStore.setTransactionState(2);
     }
   };
 
@@ -47,21 +52,21 @@ function CheckOut({videoRef,Transaction,setTransactionState}) {
       <CheckOutHeaderContainer>
       <CheckOutHeaderLogo src={LOGO} />
         <CheckOutHeader>
-          {Transaction.shopName}
+          {transactionStore.Transaction.shopName}
         </CheckOutHeader>
       </CheckOutHeaderContainer>
       <PriceDetailsContainer>
         <PriceDetails>
           <PriceLable>Price</PriceLable>
-          <PriceValue>Rs.{Transaction.price}</PriceValue>
+          <PriceValue>Rs.{transactionStore.Transaction.price}</PriceValue>
         </PriceDetails>
         <PriceDetails>
           <PriceLable>Tax</PriceLable>
-          <PriceValue>Rs.{Transaction.tax}</PriceValue>
+          <PriceValue>Rs.{transactionStore.Transaction.tax}</PriceValue>
         </PriceDetails>
         <TotalDetails>
           <TotalLable>Total Amount</TotalLable>
-          <TotalValue>Rs.{Transaction.total}</TotalValue>
+          <TotalValue>Rs.{transactionStore.Transaction.total}</TotalValue>
         </TotalDetails>
         <StyledButton onClick={handleCaptureImage}>
           Press To Procceed
@@ -76,4 +81,4 @@ function CheckOut({videoRef,Transaction,setTransactionState}) {
 
 
 
-export default CheckOut;
+export default observer(CheckOut);

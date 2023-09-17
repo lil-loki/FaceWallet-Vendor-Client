@@ -6,7 +6,7 @@ import { FaceAuthContainer } from './FaceAuth.styles';
 
 
 
-function FaceAuth({Transaction,setTransactionState}) {
+function FaceAuth() {
     const videoRef = useRef(null);
 
     return (
@@ -16,8 +16,6 @@ function FaceAuth({Transaction,setTransactionState}) {
         />
         <CheckOut 
           videoRef={videoRef} 
-          Transaction={Transaction}
-          setTransactionState={setTransactionState}
         />        
       </FaceAuthContainer>
     );

@@ -1,4 +1,8 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react-refresh/only-export-components */
+
+import { observer } from 'mobx-react';
+import transactionStore from '../../Mobx/TransactionStore';
+
 import { 
   CheckOutContainer,
   CheckOutHeaderContainer,
@@ -12,20 +16,20 @@ import {
 import LOGO from "../../assets/Logo.svg";
 
 
-function ConfirmPay({Transaction,setTransactionState}) {
+function ConfirmPay() {
   return (
     <CheckOutContainer> 
     <CheckOutHeaderContainer>
     <CheckOutHeaderLogo src={LOGO} />
       <CheckOutHeader>
-        {Transaction.shopName}
+        {transactionStore.Transaction.shopName}
       </CheckOutHeader>
     </CheckOutHeaderContainer>
     <PriceDetailsContainer>
       <InfoContainer>
-        Pay Rs.{Transaction.total} to {Transaction.shopName}
+        Pay Rs.{transactionStore.Transaction.total} to {transactionStore.Transaction.shopName}
       </InfoContainer>
-      <StyledButton onClick={()=>(setTransactionState(3))}>
+      <StyledButton onClick={()=>(transactionStore.setTransactionState(3))}>
         Confirm And Pay
       </StyledButton>
     </PriceDetailsContainer>       
@@ -34,4 +38,4 @@ function ConfirmPay({Transaction,setTransactionState}) {
   )
 }
 
-export default ConfirmPay;
+export default observer(ConfirmPay);
